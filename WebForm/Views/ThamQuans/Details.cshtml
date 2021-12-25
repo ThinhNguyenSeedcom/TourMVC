@@ -1,0 +1,42 @@
+﻿@model WebForm.ThamQuan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tham Quan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Thứ tự
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuTu)
+        </dd>
+
+        <dt>
+            Tên địa điểm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaDiem.TenDiaDiem)
+        </dd>
+
+        <dt>
+           Tên gọi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourDuLich.TenGoi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

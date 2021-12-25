@@ -1,0 +1,48 @@
+﻿@model WebForm.TourDuLich
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tour Du Lịch</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Gọi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGoi)
+        </dd>
+
+        <dt>
+            Đặt Điểm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DacDiem)
+        </dd>
+
+        <dt>
+            Tên Loại Hình
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiHinhDuLich.TenLoaiHinh)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

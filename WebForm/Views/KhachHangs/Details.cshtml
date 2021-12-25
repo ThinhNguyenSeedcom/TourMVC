@@ -1,0 +1,109 @@
+﻿@model WebForm.KhachHang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Khách hàng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            Số chứng minh thư
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCMND)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Giới tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Quốc tịch
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuocTich)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKH.Trim() }) |
+    @Html.ActionLink("Back to List", "Index")
+    
+</p>
+<div>
+    <div>
+        <h4>Đoàn Tham Gia</h4>
+        
+        <div>@Html.ActionLink("Thêm Đoàn", "Create", "ChiTietDoans")</div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Đoàn
+            </th>
+            <th>
+                Ngày khởi Hành
+            </th>
+            <th>
+                Ngày Kết Thúc
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.ChiTietDoans)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoanDuLich.NgayKhoiHanh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoanDuLich.NgayKetThuc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "DoanDuLiches", new { id = item.MaDoan.Trim() }, null) |
+                    @Html.ActionLink("Details", "Details", "DoanDuLiches", new { id = item.MaDoan.Trim() }, null) |
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+

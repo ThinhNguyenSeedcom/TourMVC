@@ -1,0 +1,43 @@
+﻿@model WebForm.ChiPhi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Chi phí</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Số tiền
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTien)
+        </dd>
+
+        <dt>
+            Mã tour
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanDuLich.MaTour)
+        </dd>
+
+        <dt>
+            Tên loại chi phí
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiChiPhi.TenLoaiChiPhi)
+        </dd>
+
+    </dl>
+</div>
+<div> @Html.ActionLink("Thêm chi phí mới", "Create")</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaChiPhi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

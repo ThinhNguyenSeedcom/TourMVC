@@ -1,0 +1,50 @@
+﻿@model WebForm.GiaTour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Giá tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Thời gian bắt đầu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianBatDau)
+        </dd>
+
+        <dt>
+            Thời gian kết thúc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianKetThuc)
+        </dd>
+
+        <dt>
+            Thành tiền
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien)
+        </dd>
+
+        <dt>
+            Tên gọi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourDuLich.TenGoi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaGia.Trim() }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

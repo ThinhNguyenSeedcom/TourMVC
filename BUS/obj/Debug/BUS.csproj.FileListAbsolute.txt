@@ -1,0 +1,14 @@
+D:\2021\HK1-4\winform\BUS\bin\Debug\BUS.exe.config
+D:\2021\HK1-4\winform\BUS\bin\Debug\BUS.exe
+D:\2021\HK1-4\winform\BUS\bin\Debug\BUS.pdb
+D:\2021\HK1-4\winform\BUS\bin\Debug\DAO.exe
+D:\2021\HK1-4\winform\BUS\bin\Debug\EntityFramework.dll
+D:\2021\HK1-4\winform\BUS\bin\Debug\DAO.pdb
+D:\2021\HK1-4\winform\BUS\bin\Debug\EntityFramework.xml
+D:\2021\HK1-4\winform\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\2021\HK1-4\winform\BUS\obj\Debug\BUS.Properties.Resources.resources
+D:\2021\HK1-4\winform\BUS\obj\Debug\BUS.csproj.GenerateResource.cache
+D:\2021\HK1-4\winform\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\2021\HK1-4\winform\BUS\obj\Debug\BUS.exe
+D:\2021\HK1-4\winform\BUS\obj\Debug\BUS.pdb
+D:\2021\HK1-4\winform\BUS\bin\Debug\DAO.exe.config

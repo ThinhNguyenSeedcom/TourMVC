@@ -1,0 +1,218 @@
+﻿@model WebForm.TourDuLich
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tour Du Lich</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Gọi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGoi)
+        </dd>
+
+        <dt>
+            Đặc Điểm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DacDiem)
+        </dd>
+
+        <dt>
+            Loại Hình Du Lịch
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiHinhDuLich.TenLoaiHinh)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTour }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div>
+    <div>
+        <h4>Giá Tour</h4>
+        <div>@Html.ActionLink("Thêm giá Tour", "Create","GiaTours")</div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Giá
+            </th>
+            <th>
+                Thời gian bắt đầu
+            </th>
+            <th>
+                Thời gian kết thúc
+            </th>
+            <th>
+                Giá
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.GiaTours)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "GiaTours", new { id = item.MaGia.Trim() }, null) |
+                @Html.ActionLink("Details", "Details", "GiaTours", new { id = item.MaGia.Trim() }, null) |
+                @Html.ActionLink("Delete", "Delete", "GiaTours", new { id = item.MaGia.Trim() }, null)
+            </td>
+        </tr>
+        }
+    </table>
+</div>
+<div>
+    <div>
+        <h4>Địa Điểm Tham Quan</h4>
+        <div>@Html.ActionLink("Thêm địa điểm tham quan", "Create", "ThamQuans")</div>
+
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Địa Điểm
+            </th>
+            <th>
+                Tên Địa Điểm
+            </th>
+            <th>
+                Thứ Tự Địa Điểm
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.ThamQuans)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaDiaDiem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaDiem.TenDiaDiem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThuTu)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit","ThamQuans", new { id = item.MaTour.Trim(), idDD = item.MaDiaDiem.Trim() },null) |
+                @Html.ActionLink("Details", "Details", "ThamQuans", new { id = item.MaTour.Trim(), idDD = item.MaDiaDiem.Trim() },null) |
+                @Html.ActionLink("Delete", "Delete", "ThamQuans", new { id = item.MaTour.Trim(), idDD = item.MaDiaDiem.Trim() }, null)
+            </td>
+        </tr>
+        }
+    </table>
+
+</div>
+
+<div>
+    <div>
+        <h4>Các Đoàn Tham Quan</h4>
+        <div>@Html.ActionLink("Thêm đoàn du lịch", "Create", "DoanDuLiches")</div>
+
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Đoàn
+            </th>
+            <th>
+                Ngày Khởi Hành
+            </th>
+            <th>
+                Ngày Kết Thúc
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.DoanDuLiches)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaDoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKhoiHanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKetThuc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit","DoanDuliches", new { id = item.MaDoan.Trim() },null) |
+                @Html.ActionLink("Details", "Details", "DoanDuliches", new { id = item.MaDoan.Trim() }, null) |
+                @Html.ActionLink("Delete", "Delete", "DoanDuliches", new { id = item.MaDoan.Trim() }, null)
+            </td>
+        </tr>
+        }
+    </table>
+
+</div>
+
+@*
+<div>
+    <div>
+        <h4>Thống Kê</h4>
+        <div>@Html.ActionLink("Thêm đoàn du lịch", "Create", "DoanDuLiches")</div>
+
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Đoàn
+            </th>
+            <th>
+                Doanh Thu
+            </th>
+            <th>
+                Chi Phí
+            </th>
+            <th>
+                Lợi Nhuận
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKhoiHanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKetThuc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit","DoanDuliches", new { id = item.MaDoan.Trim() },null) |
+                @Html.ActionLink("Details", "Details", "DoanDuliches", new { id = item.MaDoan.Trim() }, null) |
+                @Html.ActionLink("Delete", "Delete", "DoanDuliches", new { id = item.MaDoan.Trim() }, null)
+            </td>
+        </tr>
+        }
+    </table>
+
+</div>*@
+

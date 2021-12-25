@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyTourModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiPhi">
+    <Key>
+      <PropertyRef Name="MaChiPhi" />
+    </Key>
+    <Property Name="MaChiPhi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaDoan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SoTien" Type="Double" />
+    <Property Name="MaLoaiChiPhi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DoanDuLich" Relationship="Self.FK__ChiPhi__MaDoan__3A81B327" FromRole="ChiPhi" ToRole="DoanDuLich" />
+    <NavigationProperty Name="LoaiChiPhi" Relationship="Self.FK__ChiPhi__MaLoaiCh__3B75D760" FromRole="ChiPhi" ToRole="LoaiChiPhi" />
+  </EntityType>
+  <EntityType Name="DiaDiem">
+    <Key>
+      <PropertyRef Name="MaDiaDiem" />
+    </Key>
+    <Property Name="MaDiaDiem" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenDiaDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ThamQuans" Relationship="Self.FK__ThamQuan__MaDiaD__440B1D61" FromRole="DiaDiem" ToRole="ThamQuan" />
+  </EntityType>
+  <EntityType Name="DoanDuLich">
+    <Key>
+      <PropertyRef Name="MaDoan" />
+    </Key>
+    <Property Name="MaDoan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NgayKhoiHanh" Type="DateTime" Precision="0" />
+    <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
+    <Property Name="DoanhThu" Type="Double" />
+    <Property Name="MaTour" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ChiPhis" Relationship="Self.FK__ChiPhi__MaDoan__3A81B327" FromRole="DoanDuLich" ToRole="ChiPhi" />
+    <NavigationProperty Name="TourDuLich" Relationship="Self.FK__DoanDuLic__MaTou__3E52440B" FromRole="DoanDuLich" ToRole="TourDuLich" />
+    <NavigationProperty Name="NoiDungTour" Relationship="Self.FK__NoiDungTo__MaDoa__403A8C7D" FromRole="DoanDuLich" ToRole="NoiDungTour" />
+    <NavigationProperty Name="PhanBoNV_Doan" Relationship="Self.FK__PhanBoNV___MaDoa__412EB0B6" FromRole="DoanDuLich" ToRole="PhanBoNV_Doan" />
+    <NavigationProperty Name="KhachHangs" Relationship="Self.ChiTietDoan" FromRole="DoanDuLich" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="GiaTour">
+    <Key>
+      <PropertyRef Name="MaGia" />
+    </Key>
+    <Property Name="MaGia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ThoiGianBatDau" Type="DateTime" Precision="0" />
+    <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="0" />
+    <Property Name="ThanhTien" Type="Double" />
+    <Property Name="MaTour" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TourDuLich" Relationship="Self.FK__GiaTour__MaTour__3F466844" FromRole="GiaTour" ToRole="TourDuLich" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SoCMND" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="QuocTich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoanDuLiches" Relationship="Self.ChiTietDoan" FromRole="KhachHang" ToRole="DoanDuLich" />
+  </EntityType>
+  <EntityType Name="LoaiChiPhi">
+    <Key>
+      <PropertyRef Name="MaLoaiChiPhi" />
+    </Key>
+    <Property Name="MaLoaiChiPhi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenLoaiChiPhi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiPhis" Relationship="Self.FK__ChiPhi__MaLoaiCh__3B75D760" FromRole="LoaiChiPhi" ToRole="ChiPhi" />
+  </EntityType>
+  <EntityType Name="LoaiHinhDuLich">
+    <Key>
+      <PropertyRef Name="MaLoaiHinh" />
+    </Key>
+    <Property Name="MaLoaiHinh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenLoaiHinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TourDuLiches" Relationship="Self.FK__TourDuLic__MaLoa__4316F928" FromRole="LoaiHinhDuLich" ToRole="TourDuLich" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenNV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhanBoNV_Doan" Relationship="Self.FK__PhanBoNV_D__MaNV__4222D4EF" FromRole="NhanVien" ToRole="PhanBoNV_Doan" />
+  </EntityType>
+  <EntityType Name="NoiDungTour">
+    <Key>
+      <PropertyRef Name="MaDoan" />
+    </Key>
+    <Property Name="MaDoan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HanhTrinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KhachSan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiaDiemThamQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoanDuLich" Relationship="Self.FK__NoiDungTo__MaDoa__403A8C7D" FromRole="NoiDungTour" ToRole="DoanDuLich" />
+  </EntityType>
+  <EntityType Name="PhanBoNV_Doan">
+    <Key>
+      <PropertyRef Name="MaNV" />
+      <PropertyRef Name="MaDoan" />
+    </Key>
+    <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaDoan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NhiemVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoanDuLich" Relationship="Self.FK__PhanBoNV___MaDoa__412EB0B6" FromRole="PhanBoNV_Doan" ToRole="DoanDuLich" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK__PhanBoNV_D__MaNV__4222D4EF" FromRole="PhanBoNV_Doan" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="ThamQuan">
+    <Key>
+      <PropertyRef Name="MaTour" />
+      <PropertyRef Name="MaDiaDiem" />
+    </Key>
+    <Property Name="MaTour" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaDiaDiem" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ThuTu" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DiaDiem" Relationship="Self.FK__ThamQuan__MaDiaD__440B1D61" FromRole="ThamQuan" ToRole="DiaDiem" />
+    <NavigationProperty Name="TourDuLich" Relationship="Self.FK__ThamQuan__MaTour__44FF419A" FromRole="ThamQuan" ToRole="TourDuLich" />
+  </EntityType>
+  <EntityType Name="TourDuLich">
+    <Key>
+      <PropertyRef Name="MaTour" />
+    </Key>
+    <Property Name="MaTour" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenGoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DacDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiHinh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DoanDuLiches" Relationship="Self.FK__DoanDuLic__MaTou__3E52440B" FromRole="TourDuLich" ToRole="DoanDuLich" />
+    <NavigationProperty Name="GiaTours" Relationship="Self.FK__GiaTour__MaTour__3F466844" FromRole="TourDuLich" ToRole="GiaTour" />
+    <NavigationProperty Name="LoaiHinhDuLich" Relationship="Self.FK__TourDuLic__MaLoa__4316F928" FromRole="TourDuLich" ToRole="LoaiHinhDuLich" />
+    <NavigationProperty Name="ThamQuans" Relationship="Self.FK__ThamQuan__MaTour__44FF419A" FromRole="TourDuLich" ToRole="ThamQuan" />
+  </EntityType>
+  <Association Name="FK__ChiPhi__MaDoan__3A81B327">
+    <End Role="DoanDuLich" Type="Self.DoanDuLich" Multiplicity="1" />
+    <End Role="ChiPhi" Type="Self.ChiPhi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoanDuLich">
+        <PropertyRef Name="MaDoan" />
+      </Principal>
+      <Dependent Role="ChiPhi">
+        <PropertyRef Name="MaDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiPhi__MaLoaiCh__3B75D760">
+    <End Role="LoaiChiPhi" Type="Self.LoaiChiPhi" Multiplicity="1" />
+    <End Role="ChiPhi" Type="Self.ChiPhi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiChiPhi">
+        <PropertyRef Name="MaLoaiChiPhi" />
+      </Principal>
+      <Dependent Role="ChiPhi">
+        <PropertyRef Name="MaLoaiChiPhi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThamQuan__MaDiaD__440B1D61">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="1" />
+    <End Role="ThamQuan" Type="Self.ThamQuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="MaDiaDiem" />
+      </Principal>
+      <Dependent Role="ThamQuan">
+        <PropertyRef Name="MaDiaDiem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DoanDuLic__MaTou__3E52440B">
+    <End Role="TourDuLich" Type="Self.TourDuLich" Multiplicity="1" />
+    <End Role="DoanDuLich" Type="Self.DoanDuLich" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TourDuLich">
+        <PropertyRef Name="MaTour" />
+      </Principal>
+      <Dependent Role="DoanDuLich">
+        <PropertyRef Name="MaTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NoiDungTo__MaDoa__403A8C7D">
+    <End Role="DoanDuLich" Type="Self.DoanDuLich" Multiplicity="1" />
+    <End Role="NoiDungTour" Type="Self.NoiDungTour" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DoanDuLich">
+        <PropertyRef Name="MaDoan" />
+      </Principal>
+      <Dependent Role="NoiDungTour">
+        <PropertyRef Name="MaDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhanBoNV___MaDoa__412EB0B6">
+    <End Role="DoanDuLich" Type="Self.DoanDuLich" Multiplicity="1" />
+    <End Role="PhanBoNV_Doan" Type="Self.PhanBoNV_Doan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoanDuLich">
+        <PropertyRef Name="MaDoan" />
+      </Principal>
+      <Dependent Role="PhanBoNV_Doan">
+        <PropertyRef Name="MaDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GiaTour__MaTour__3F466844">
+    <End Role="TourDuLich" Type="Self.TourDuLich" Multiplicity="1" />
+    <End Role="GiaTour" Type="Self.GiaTour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TourDuLich">
+        <PropertyRef Name="MaTour" />
+      </Principal>
+      <Dependent Role="GiaTour">
+        <PropertyRef Name="MaTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TourDuLic__MaLoa__4316F928">
+    <End Role="LoaiHinhDuLich" Type="Self.LoaiHinhDuLich" Multiplicity="1" />
+    <End Role="TourDuLich" Type="Self.TourDuLich" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiHinhDuLich">
+        <PropertyRef Name="MaLoaiHinh" />
+      </Principal>
+      <Dependent Role="TourDuLich">
+        <PropertyRef Name="MaLoaiHinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhanBoNV_D__MaNV__4222D4EF">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="PhanBoNV_Doan" Type="Self.PhanBoNV_Doan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="PhanBoNV_Doan">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThamQuan__MaTour__44FF419A">
+    <End Role="TourDuLich" Type="Self.TourDuLich" Multiplicity="1" />
+    <End Role="ThamQuan" Type="Self.ThamQuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TourDuLich">
+        <PropertyRef Name="MaTour" />
+      </Principal>
+      <Dependent Role="ThamQuan">
+        <PropertyRef Name="MaTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChiTietDoan">
+    <End Role="DoanDuLich" Type="Self.DoanDuLich" Multiplicity="*" />
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="QuanLyTourEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiPhis" EntityType="Self.ChiPhi" />
+    <EntitySet Name="DiaDiems" EntityType="Self.DiaDiem" />
+    <EntitySet Name="DoanDuLiches" EntityType="Self.DoanDuLich" />
+    <EntitySet Name="GiaTours" EntityType="Self.GiaTour" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="LoaiChiPhis" EntityType="Self.LoaiChiPhi" />
+    <EntitySet Name="LoaiHinhDuLiches" EntityType="Self.LoaiHinhDuLich" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="NoiDungTours" EntityType="Self.NoiDungTour" />
+    <EntitySet Name="PhanBoNV_Doan" EntityType="Self.PhanBoNV_Doan" />
+    <EntitySet Name="ThamQuans" EntityType="Self.ThamQuan" />
+    <EntitySet Name="TourDuLiches" EntityType="Self.TourDuLich" />
+    <AssociationSet Name="FK__ChiPhi__MaDoan__3A81B327" Association="Self.FK__ChiPhi__MaDoan__3A81B327">
+      <End Role="DoanDuLich" EntitySet="DoanDuLiches" />
+      <End Role="ChiPhi" EntitySet="ChiPhis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiPhi__MaLoaiCh__3B75D760" Association="Self.FK__ChiPhi__MaLoaiCh__3B75D760">
+      <End Role="LoaiChiPhi" EntitySet="LoaiChiPhis" />
+      <End Role="ChiPhi" EntitySet="ChiPhis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThamQuan__MaDiaD__440B1D61" Association="Self.FK__ThamQuan__MaDiaD__440B1D61">
+      <End Role="DiaDiem" EntitySet="DiaDiems" />
+      <End Role="ThamQuan" EntitySet="ThamQuans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DoanDuLic__MaTou__3E52440B" Association="Self.FK__DoanDuLic__MaTou__3E52440B">
+      <End Role="TourDuLich" EntitySet="TourDuLiches" />
+      <End Role="DoanDuLich" EntitySet="DoanDuLiches" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NoiDungTo__MaDoa__403A8C7D" Association="Self.FK__NoiDungTo__MaDoa__403A8C7D">
+      <End Role="DoanDuLich" EntitySet="DoanDuLiches" />
+      <End Role="NoiDungTour" EntitySet="NoiDungTours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhanBoNV___MaDoa__412EB0B6" Association="Self.FK__PhanBoNV___MaDoa__412EB0B6">
+      <End Role="DoanDuLich" EntitySet="DoanDuLiches" />
+      <End Role="PhanBoNV_Doan" EntitySet="PhanBoNV_Doan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GiaTour__MaTour__3F466844" Association="Self.FK__GiaTour__MaTour__3F466844">
+      <End Role="TourDuLich" EntitySet="TourDuLiches" />
+      <End Role="GiaTour" EntitySet="GiaTours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TourDuLic__MaLoa__4316F928" Association="Self.FK__TourDuLic__MaLoa__4316F928">
+      <End Role="LoaiHinhDuLich" EntitySet="LoaiHinhDuLiches" />
+      <End Role="TourDuLich" EntitySet="TourDuLiches" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhanBoNV_D__MaNV__4222D4EF" Association="Self.FK__PhanBoNV_D__MaNV__4222D4EF">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="PhanBoNV_Doan" EntitySet="PhanBoNV_Doan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThamQuan__MaTour__44FF419A" Association="Self.FK__ThamQuan__MaTour__44FF419A">
+      <End Role="TourDuLich" EntitySet="TourDuLiches" />
+      <End Role="ThamQuan" EntitySet="ThamQuans" />
+    </AssociationSet>
+    <AssociationSet Name="ChiTietDoan" Association="Self.ChiTietDoan">
+      <End Role="DoanDuLich" EntitySet="DoanDuLiches" />
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

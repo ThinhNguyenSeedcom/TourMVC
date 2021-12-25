@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyTourModelStoreContainer" CdmEntityContainer="QuanLyTourEntities">
+    <EntitySetMapping Name="ChiPhis">
+      <EntityTypeMapping TypeName="QuanLyTourModel.ChiPhi">
+        <MappingFragment StoreEntitySet="ChiPhi">
+          <ScalarProperty Name="MaChiPhi" ColumnName="MaChiPhi" />
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="MaLoaiChiPhi" ColumnName="MaLoaiChiPhi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietDoans">
+      <EntityTypeMapping TypeName="QuanLyTourModel.ChiTietDoan">
+        <MappingFragment StoreEntitySet="ChiTietDoan">
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiaDiems">
+      <EntityTypeMapping TypeName="QuanLyTourModel.DiaDiem">
+        <MappingFragment StoreEntitySet="DiaDiem">
+          <ScalarProperty Name="MaDiaDiem" ColumnName="MaDiaDiem" />
+          <ScalarProperty Name="TenDiaDiem" ColumnName="TenDiaDiem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoanDuLiches">
+      <EntityTypeMapping TypeName="QuanLyTourModel.DoanDuLich">
+        <MappingFragment StoreEntitySet="DoanDuLich">
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+          <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiaTours">
+      <EntityTypeMapping TypeName="QuanLyTourModel.GiaTour">
+        <MappingFragment StoreEntitySet="GiaTour">
+          <ScalarProperty Name="MaGia" ColumnName="MaGia" />
+          <ScalarProperty Name="ThoiGianBatDau" ColumnName="ThoiGianBatDau" />
+          <ScalarProperty Name="ThoiGianKetThuc" ColumnName="ThoiGianKetThuc" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QuanLyTourModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="QuocTich" ColumnName="QuocTich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiChiPhis">
+      <EntityTypeMapping TypeName="QuanLyTourModel.LoaiChiPhi">
+        <MappingFragment StoreEntitySet="LoaiChiPhi">
+          <ScalarProperty Name="MaLoaiChiPhi" ColumnName="MaLoaiChiPhi" />
+          <ScalarProperty Name="TenLoaiChiPhi" ColumnName="TenLoaiChiPhi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiHinhDuLiches">
+      <EntityTypeMapping TypeName="QuanLyTourModel.LoaiHinhDuLich">
+        <MappingFragment StoreEntitySet="LoaiHinhDuLich">
+          <ScalarProperty Name="MaLoaiHinh" ColumnName="MaLoaiHinh" />
+          <ScalarProperty Name="TenLoaiHinh" ColumnName="TenLoaiHinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="QuanLyTourModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoiDungTours">
+      <EntityTypeMapping TypeName="QuanLyTourModel.NoiDungTour">
+        <MappingFragment StoreEntitySet="NoiDungTour">
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="HanhTrinh" ColumnName="HanhTrinh" />
+          <ScalarProperty Name="KhachSan" ColumnName="KhachSan" />
+          <ScalarProperty Name="DiaDiemThamQuan" ColumnName="DiaDiemThamQuan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanBoNV_Doan">
+      <EntityTypeMapping TypeName="QuanLyTourModel.PhanBoNV_Doan">
+        <MappingFragment StoreEntitySet="PhanBoNV_Doan">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="NhiemVu" ColumnName="NhiemVu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThamQuans">
+      <EntityTypeMapping TypeName="QuanLyTourModel.ThamQuan">
+        <MappingFragment StoreEntitySet="ThamQuan">
+          <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+          <ScalarProperty Name="MaDiaDiem" ColumnName="MaDiaDiem" />
+          <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TourDuLiches">
+      <EntityTypeMapping TypeName="QuanLyTourModel.TourDuLich">
+        <MappingFragment StoreEntitySet="TourDuLich">
+          <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+          <ScalarProperty Name="TenGoi" ColumnName="TenGoi" />
+          <ScalarProperty Name="DacDiem" ColumnName="DacDiem" />
+          <ScalarProperty Name="MaLoaiHinh" ColumnName="MaLoaiHinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
